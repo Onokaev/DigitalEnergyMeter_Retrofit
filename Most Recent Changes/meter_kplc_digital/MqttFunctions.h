@@ -28,9 +28,12 @@ void mqttCallback(char* topic, byte* payload, unsigned int len)
     //function to check the time and verify that it is a different transmission
     //pass messageTemp
     get_time_and_units(messageTemp);
+
+    //add decryption to obtain tokens received
     received_units = getUnits();  //returns the units received after verification
     //received_units = messageTemp.toDouble();
-    Serial.print("Units: ");Serial.print(received_units);
+    Serial.print("Units: ");
+    Serial.print(received_units);
 
     if(received_units > 0.00)
     {
